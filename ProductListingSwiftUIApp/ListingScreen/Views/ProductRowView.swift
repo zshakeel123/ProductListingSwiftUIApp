@@ -12,18 +12,7 @@ public struct ProductRowView: View {
     
     public var body: some View {
         HStack {
-            AsyncImage(url: URL(string: product.thumbnail)){ image in
-                image.resizable()
-                    .aspectRatio(contentMode: .fit)
-                    .frame(width: 80, height: 80)
-                    .cornerRadius(8)
-            } placeholder: {
-                ProgressView()
-                    .frame(width: 80, height: 80)
-                    .background(AppConstants.Colors.background.opacity(0.2))
-                    .cornerRadius(8)
-            }
-            
+            ProductImageView(imageUrlString: product.thumbnail)
             VStack(alignment: .leading) {
                 Text("\(product.title)")
                     .font(.headline)
@@ -33,9 +22,10 @@ public struct ProductRowView: View {
                     .foregroundColor(.secondary)
             }
         }
-        .padding(AppConstants.UI.defaultPadding / 2)
+        .padding(AppConstants.UI.defaultPadding)
+        .frame(maxWidth: .infinity, alignment: .leading)
         .background(AppConstants.Colors.cellBackground)
-        .cornerRadius(AppConstants.UI.defaultPadding / 2)
+        .cornerRadius(AppConstants.UI.defaultPadding)
     }
 }
 
@@ -43,7 +33,12 @@ public struct ProductRowView: View {
 #Preview {
     let mockProduct = Product(id: 1, title: "Test Product 1", description: "", price: 10, discountPercentage: 0, rating: 5, stock: 0, brand: nil, category: "", thumbnail: "https://cdn.dummyjson.com/product-images/furniture/annibale-colombo-sofa/thumbnail.webp", images: [])
     
-    ProductRowView(product: mockProduct)
-//        .padding()
-//        .background(AppConstants.Colors.background)
+    let mockProduct2 = Product(id: 1, title: "Test Product 2", description: "", price: 15, discountPercentage: 0, rating: 5, stock: 0, brand: nil, category: "", thumbnail: "https://cdn.dummyjson.com/product-images/furniture/invalid_url1", images: [])
+    
+    List{
+        ProductRowView(product: mockProduct)
+        ProductRowView(product: mockProduct2)
+    }
 }
+
+
