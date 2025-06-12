@@ -1,5 +1,5 @@
 //
-//  ProductDetailsViewModel.swift
+//  ProductDetailViewModel.swift
 //  ProductUIKitApp
 //
 //  Created by Zeeshan Shakeel on 21/05/2025.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-class ProductDetailsViewModel {
+class ProductDetailViewModel {
     private let product: Product
     
     init(product: Product) {

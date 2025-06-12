@@ -12,10 +12,11 @@ import SwiftUI // Import SwiftUI for Color and Font
 enum AppConstants {
     // MARK: - API
     enum API {
+        // base url
         static let baseURLString = "https://dummyjson.com"
+        // API endpoints
         static let productsEndpoint = "/products"
         static let usersEndpoint = "/users"
-        // ... other API endpoints
     }
     
     // MARK: - UI
@@ -27,16 +28,16 @@ enum AppConstants {
     enum Colors {
         // Using SwiftUI's Color directly. You can define custom colors here
         // or load them from asset catalog if they are defined there.
-//        static let primary = SwiftUI.Color("PrimaryColor") // Assumes "PrimaryColor" is in Assets.xcassets
-//        static let secondary = SwiftUI.Color("SecondaryColor") ?? .secondary // Fallback to system color
-//        static let accent = SwiftUI.Color("AccentColor") ?? .orange
-//        static let background = SwiftUI.Color("BackgroundColor") ?? .clear // Clear for background
-//        static let cellBackground = SwiftUI.Color("CellBackgroundColor") ?? .white
+        //        static let primary = SwiftUI.Color("PrimaryColor") // Assumes "PrimaryColor" is in Assets.xcassets
+        //        static let secondary = SwiftUI.Color("SecondaryColor") ?? .secondary // Fallback to system color
+        //        static let accent = SwiftUI.Color("AccentColor") ?? .orange
+        //        static let background = SwiftUI.Color("BackgroundColor") ?? .clear // Clear for background
+        //        static let cellBackground = SwiftUI.Color("CellBackgroundColor") ?? .white
         
         // Using system colors directly as we don't have custom asset colors
-         static let primary = Color.blue
-         static let secondary = Color.secondary
-         static let accent = Color.orange
+        static let primary = Color.blue
+        static let secondary = Color.secondary
+        static let accent = Color.orange
         static let background = Color.white
         static let cellBackground = Color.cyan
     }
@@ -51,5 +52,5 @@ enum AppConstants {
     
     // MARK: - Other
     static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? "N/A"
-    static let supportEmail = "support@yourapp.com"
+    static let supportEmail = "support@myapp.com"
 }

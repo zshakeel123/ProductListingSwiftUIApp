@@ -7,8 +7,8 @@
 
 import Foundation
 
-class ProductListViewModel: ObservableObject {
-    private let productService: IProductService
+class ProductListViewModel: ObservableObject, IProductListViewModel {
+    private let productService: IProductService?
     
     @Published var products: [Product] = []
     @Published var isLoading = false
@@ -19,8 +19,8 @@ class ProductListViewModel: ObservableObject {
     private var canLoadMore = true
     
     
-    init(productService: IProductService = ProductService()) {
-        self.productService = productService
+    required init(productService: IProductService?) {
+        self.productService = productService ?? ProductService()
     }
     
     func loadProducts() {
@@ -29,7 +29,7 @@ class ProductListViewModel: ObservableObject {
         
         let skipValue = currentPage * limit
         
-        productService.fetchProducts(skip: skipValue, limit: limit) { [weak self] result in
+        productService?.fetchProducts(skip: skipValue, limit: limit) { [weak self] result in
             guard let self = self else {return}
             
             DispatchQueue.main.async {
