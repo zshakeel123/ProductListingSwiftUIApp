@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ProductServiceKit
 
 class ProductDetailViewModel {
     private let product: Product

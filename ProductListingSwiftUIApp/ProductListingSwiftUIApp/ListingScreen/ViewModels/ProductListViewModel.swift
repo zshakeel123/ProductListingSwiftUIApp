@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ProductServiceKit
 
 class ProductListViewModel: ObservableObject, IProductListViewModel {
     private let productService: IProductService?
@@ -20,10 +21,14 @@ class ProductListViewModel: ObservableObject, IProductListViewModel {
     
     
     required init(productService: IProductService?) {
-        self.productService = productService ?? ProductService()
+        self.productService = productService ?? ProductService(baseURLString: AppConstants.API.baseURLString, productEndPoint: AppConstants.API.productsEndpoint, session: .shared)
     }
     
     func loadProducts() {
+        guard self.productService != nil else {
+            errorMessage = "Product service not available"
+            return
+        }
         guard !isLoading else {return}
         isLoading = true
         
@@ -45,6 +50,7 @@ class ProductListViewModel: ObservableObject, IProductListViewModel {
                     }
                 case .failure(let error):
                     self.errorMessage = error.localizedDescription
+                    print(error.localizedDescription)
                 }
             }
         }

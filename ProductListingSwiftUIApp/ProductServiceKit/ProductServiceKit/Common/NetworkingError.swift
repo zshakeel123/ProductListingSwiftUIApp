@@ -7,7 +7,8 @@
 
 import Foundation
 
-enum NetworkingError: Error, LocalizedError {
+public enum NetworkingError: Error, LocalizedError {
+    case missingAPIEndpoint
     case invalidURL
     case requestFailed(Error)
     case invalidResponse
@@ -16,8 +17,10 @@ enum NetworkingError: Error, LocalizedError {
     case serverError(statusCode: Int)
     case unknownError
     
-    var errorDescription: String? {
+    public var errorDescription: String? {
         switch self {
+        case .missingAPIEndpoint:
+            return "The API endpoint is missing. Please check the configuration."
         case .invalidURL:
             return "The product URL is invalid. Please check the address."
         case .requestFailed(let error):

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import ProductServiceKit
 
 protocol IProductListViewModel : ObservableObject {
     var products: [Product] { get }

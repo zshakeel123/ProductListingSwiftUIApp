@@ -7,6 +7,7 @@
 
 import Foundation
 import SwiftUI
+import ProductServiceKit
 
 class MockProductListViewModel: ObservableObject, IProductListViewModel {
     @Published var products: [Product] = []

@@ -6,12 +6,13 @@
 //
 
 import SwiftUI
+import ProductServiceKit
 
 @main
 struct ProductListingSwiftUIAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ProductListingView(viewModel: ProductListViewModel.init(productService: ProductService()))
+            ProductListingView(viewModel: ProductListViewModel.init(productService: nil))
         }
     }
 }

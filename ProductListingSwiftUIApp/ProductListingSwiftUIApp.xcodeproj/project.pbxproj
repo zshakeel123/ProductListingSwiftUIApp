@@ -6,7 +6,28 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		B3034FB22DFD50D00087D81C /* ProductServiceKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3034FB12DFD50D00087D81C /* ProductServiceKit.framework */; };
+		B3034FB32DFD50D00087D81C /* ProductServiceKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B3034FB12DFD50D00087D81C /* ProductServiceKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		B3034FB42DFD50D10087D81C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				B3034FB32DFD50D00087D81C /* ProductServiceKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		B3034F772DFC06D20087D81C /* ProductService.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProductService.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3034FB12DFD50D00087D81C /* ProductServiceKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = ProductServiceKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B32BCCA32DDC8E37001BABAF /* ProductListingSwiftUIApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ProductListingSwiftUIApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -23,16 +44,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B3034FB22DFD50D00087D81C /* ProductServiceKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B3034F762DFC06D10087D81C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B3034FB12DFD50D00087D81C /* ProductServiceKit.framework */,
+				B3034F772DFC06D20087D81C /* ProductService.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B32BCC9A2DDC8E37001BABAF = {
 			isa = PBXGroup;
 			children = (
 				B32BCCA52DDC8E38001BABAF /* ProductListingSwiftUIApp */,
+				B3034F762DFC06D10087D81C /* Frameworks */,
 				B32BCCA42DDC8E37001BABAF /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,6 +87,7 @@
 				B32BCC9F2DDC8E37001BABAF /* Sources */,
 				B32BCCA02DDC8E37001BABAF /* Frameworks */,
 				B32BCCA12DDC8E37001BABAF /* Resources */,
+				B3034FB42DFD50D10087D81C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

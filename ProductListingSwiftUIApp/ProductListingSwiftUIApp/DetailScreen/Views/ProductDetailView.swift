@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ProductServiceKit
 
 struct ProductDetailView: View {
     @State private var viewModel: ProductDetailViewModel

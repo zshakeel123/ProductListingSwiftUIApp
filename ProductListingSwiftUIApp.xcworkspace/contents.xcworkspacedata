@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:ProductListingSwiftUIApp/ProductService/ProductService.xcodeproj">
+      location = "group:ProductListingSwiftUIApp/ProductServiceKit/ProductServiceKit.xcodeproj">
    </FileRef>
    <FileRef
       location = "group:ProductListingSwiftUIApp/ProductListingSwiftUIApp.xcodeproj">

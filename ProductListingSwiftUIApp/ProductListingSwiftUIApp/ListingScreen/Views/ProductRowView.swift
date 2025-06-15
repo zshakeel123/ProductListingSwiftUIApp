@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ProductServiceKit
 
 public struct ProductRowView: View {
     let product: Product
