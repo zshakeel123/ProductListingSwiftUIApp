@@ -7,7 +7,7 @@
 
 import Foundation
 
-public enum NetworkingError: Error, LocalizedError {
+public enum NetworkingError: Error, LocalizedError, Equatable {
     case missingAPIEndpoint
     case invalidURL
     case requestFailed(Error)
@@ -35,6 +35,29 @@ public enum NetworkingError: Error, LocalizedError {
             return "Server error with status code: \(statusCode). Please try again later."
         case .unknownError:
             return "An unexpected error occurred. Please try again."
+        }
+    }
+    
+    // NetworkingError needs to be Equatable for direct comparison in tests
+    public static func == (lhs: NetworkingError, rhs: NetworkingError) -> Bool {
+        switch (lhs, rhs) {
+        case (.missingAPIEndpoint, .missingAPIEndpoint),
+            (.invalidURL, .invalidURL),
+            (.invalidResponse, .invalidResponse),
+            (.noData, .noData),
+            (.unknownError, .unknownError):
+            return true
+        case (.requestFailed(let lError), .requestFailed(let rError)):
+            // Compare NSError codes and domains for URLErrors
+            return (lError as NSError).domain == (rError as NSError).domain &&
+            (lError as NSError).code == (rError as NSError).code
+        case (.serverError(let lCode), .serverError(let rCode)):
+            return lCode == rCode
+        case (.decodingError(_), .decodingError(_)):
+            // For decoding errors, we typically care about the type of error, not its exact details
+            return true
+        default:
+            return false
         }
     }
 }

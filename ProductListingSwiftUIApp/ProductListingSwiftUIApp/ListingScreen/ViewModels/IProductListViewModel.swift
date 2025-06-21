@@ -14,6 +14,6 @@ protocol IProductListViewModel : ObservableObject {
     var errorMessage: String? { get set }
  
     init(productService: IProductService?)
-    func loadProducts()
-    func loadMoreProducts()
+    func loadProducts() async
+    func loadMoreProducts() async
 }

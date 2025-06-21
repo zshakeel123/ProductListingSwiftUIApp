@@ -19,7 +19,9 @@ struct ProductListingView<ViewModel: IProductListViewModel>: View {
         }
         .onAppear() {
             if(viewModel.products.isEmpty && !viewModel.isLoading){
-                viewModel.loadProducts()
+                Task {
+                    await viewModel.loadProducts()
+                }
             }
         }
     }
